@@ -39,10 +39,10 @@ def test(final_velocity, grid_shape):
 
 if __name__ == '__main__':
     x = 100
-    y = 50
+    y = 100
     epsilon = 0.001  # Amplitude of the perturbation
     omega = 1  # Relaxation parameter
-    num_time_steps = 8000
+    num_time_steps = 45000
     density_init = 1
 
     final_velocity = main(x=x, y=y, num_time_steps=num_time_steps, omega=omega, epsilon=epsilon,

@@ -258,17 +258,20 @@ def visualise_velocity_vectors_couette_poiseuille(velocity, time_step, wall_velo
     grid_size_x = velocity.shape[1]
     y_a = np.arange(0, grid_size_y)
     vel_x = velocity[0][int(grid_size_x / 2), :]
+    plt.figure(figsize=(12, 8))
     if poiseuille:
-        nu = 1 / 3 * (1 / omega - 0.5)
-        delta = 2.0 * epsilon / grid_size_x / nu / 2
+        viscosity = 1 / 3 * (1 / omega - 0.5)
         y_analytical = np.linspace(0, grid_size_y, grid_size_y + 1) + 0.5
-        analytical = (delta * y_analytical * (grid_size_y - y_analytical) / 3)[:-1]
+        analytical = (-0.5 * (-2.0 * epsilon / grid_size_x / viscosity / 3) * y_analytical *
+                      (grid_size_y - y_analytical))[:-1]
     else:
         analytical = y_a/grid_size_y*wall_velocity
 
-    for val, y_coord in zip(vel_x, y_a):
+    # Plot only 1/3 of the vectors
+    for i in range(0, len(vel_x), 3):
+        val, y_coord = vel_x[i], y_a[i]
         origin = [0, y_coord]
-        plt.quiver(*origin, *[val, 0.0], color='royalblue', scale_units='xy', scale=1, headwidth=2)
+        plt.quiver(*origin, val, 0.0, color='royalblue', scale_units='xy', scale=1, headwidth=2)
 
     plt.plot(vel_x, y_a, label='Simulated', c='blue', linestyle=':')
     plt.plot(analytical, y_a, label="Analytical", linestyle='--', color='black')
@@ -315,10 +318,10 @@ def visualise_velocity_evolution_couette_poiseuille(grid_size_x, grid_size_y, wa
         os.makedirs(output_path)
 
     if poiseuille:
-        nu = 1 / 3 * (1 / omega - 0.5)
-        delta = 2.0 * epsilon / grid_size_x / nu / 2
+        viscosity = 1 / 3 * (1 / omega - 0.5)
         y_analytical = np.linspace(0, grid_size_y, grid_size_y + 1) + 0.5
-        analytical = (delta * y_analytical * (grid_size_y - y_analytical) / 3)[:-1]
+        analytical = (-0.5 * (-2.0 * epsilon / grid_size_x / viscosity / 3) * y_analytical *
+                      (grid_size_y - y_analytical))[:-1]
     else:
         analytical = np.arange(0, grid_size_y) / grid_size_y * wall_velocity
 

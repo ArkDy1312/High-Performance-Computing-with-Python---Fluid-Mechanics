@@ -61,11 +61,11 @@ def main(x, y, omega, num_time_steps, epsilon, density_init=1, test=False):
 
 
 if __name__ == '__main__':
-    x = 50
-    y = 50
+    x = 100
+    y = 100
     epsilon = 0.001  # Amplitude of the perturbation
     omega = 1  # Relaxation parameter
-    num_time_steps = 7000
+    num_time_steps = 45000
     density_init = 1
 
     final_velocity = main(x=x, y=y, num_time_steps=num_time_steps, omega=omega, epsilon=epsilon,

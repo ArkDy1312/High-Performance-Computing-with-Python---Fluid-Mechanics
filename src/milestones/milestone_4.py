@@ -40,10 +40,10 @@ def main(x, y, num_time_steps, wall_velocity, omega, epsilon=0.01):
 
 if __name__ == "__main__":
     x = 100
-    y = 50
+    y = 100
     epsilon = 0.01  # Amplitude of the perturbation
     omega = 1  # Relaxation parameter
     wall_velocity = 0.1
-    num_time_steps = 8000
+    num_time_steps = 30000
 
     main(x=x, y=y, num_time_steps=num_time_steps, omega=omega, wall_velocity=wall_velocity)

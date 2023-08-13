@@ -16,7 +16,29 @@ The different simulations implemented in this repository are:
 
 ## Running Simulations
 
-To run any of these simulations, use the `run.py` script. Here are examples of how to run the Sliding Lid Serial and Parallel simulations:
+To run any of these simulations, use the `run.py` script. 
+
+Instructions how to run the experiments:
+
+```
+-E, '--experiment_name', type=str : The simulation experiment to run. For example (from above) "swd" implies Shear Wave Decay.
+-X, type=int : The different lattice size in the x direction.
+-Y, type=int : The different lattice size in the y direction.
+-T, '--num_time_steps', type=int : The total time steps for which to run the simulation.
+-O, '--omega', type=float : Relaxation Parameter.
+--lx, type=int : The length of the domain in the x direction.
+--ly, type=int : The length of the domain in the y direction.
+--eps, type=float : Amplitude of the perturbation
+-WV, '--wall_velocity', type=float : Velocity of the moving wall.
+-DIPF, '--density_initial_poiseuille', type=float : Initial density for Poiseuille flow.
+-DISWD, '--density_initial_sinus_density', type=float : Initial density for Shear Wave Decay of density.
+-V, '--viscosity', type=float : Viscosity.
+-RN, '--reynolds_number', type=int : Reynolds Number.
+-NP, '--num_processes', type=int : Total number of processes.
+-NPX, '--num_processes_x', type=int : Number of processes in x direction.
+-NPY, '--num_processes_y', type=int : Number of processes in y direction.
+```
+Here are examples of how to run the Sliding Lid Serial and Parallel simulations:
 
 - Sliding Lid Serial:
 
@@ -43,6 +65,15 @@ Some test cases have been provided to validate the implementations:
 ## Scaling Test
 
 A scaling test for the Sliding Lid parallel simulation is available, which measures and visualizes the MLUPS (Million Lattice Updates Per Second) for different combinations of parameters.
+
+Instructions on how to run the scaling test:
+
+```
+-T, '--total_time_steps', type=int : Total number of time steps.
+-P, '--different_num_processes', type=str : The different number of processes.
+-X, type=str : The different lattice size in the x direction.
+-Y, type=str : The different lattice size in the y direction.
+```
 
 Example command to run the scaling test:
 
