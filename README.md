@@ -51,8 +51,6 @@ Here are examples of how to run the Sliding Lid Serial and Parallel simulations:
 
 `Note:` There is no need to use `"mpirun"` for parallelizing the implementation; this is handled internally by the code.
 
-Please refer to the `run.py` script for a full list of available arguments.
-
 ## Test Cases
 
 Some test cases have been provided to validate the implementations:
@@ -78,8 +76,6 @@ Instructions on how to run the scaling test:
 Example command to run the scaling test:
 
 `python scaling_test.py -T 10000 -P 100,200 -X 200,300 -Y 200,300`
-
-Please refer to the `scaling_test.py` script for the available arguments.
 
 `Note:` Similar to the other implementation, there is no need to use `"mpirun"` for parallelizing this test; it's handled internally.
 
